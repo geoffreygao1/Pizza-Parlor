@@ -78,6 +78,12 @@ Order.prototype.reset = function () {
 };
 
 //UI Logic
+
+window.addEventListener("load", function () {
+  const form = document.getElementById("orderForm");
+  form.addEventListener("submit", cartHandler);
+});
+
 //test cases
 let myPizza = new Pizza();
 myPizza.addTopping("anchovies");
