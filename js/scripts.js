@@ -30,12 +30,11 @@ Pizza.prototype.pizzaPrice = function () {
     sizeMultiplier = 3;
   } else if (this.size === "extra-large") {
     sizeMultiplier = 4;
-    console.log("extra large")
   }
 
   toppingsPrice = this.toppings.length * 0.75;
   pizzaPrice = (basePrice + toppingsPrice) * sizeMultiplier;
-  console.log(pizzaPrice);
+  return pizzaPrice;
 };
 
 function Order() {
@@ -47,6 +46,14 @@ Order.prototype.addPizza = function (pizza) {
   this.cart.push(pizza);
 };
 
+Order.prototype.cartPrice = function () {
+  let cartPrice = 0;
+  this.cart.forEach(function (element) {
+    cartPrice += element.pizzaPrice();
+  });
+  console.log(cartPrice);
+};
+
 //UI Logic
 //test cases
 let myPizza = new Pizza();
@@ -55,4 +62,5 @@ myPizza.addTopping("anchovies");
 myPizza.addTopping("Peppers");
 myPizza.updateSize("extra-large");
 let myOrder = new Order();
+myOrder.addPizza(myPizza);
 myOrder.addPizza(myPizza);
