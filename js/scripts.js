@@ -1,3 +1,4 @@
+//Business Logic
 function Pizza() {
   this.toppings = [];
   this.size = "";
@@ -9,11 +10,11 @@ Pizza.prototype.addTopping = function (topping) {
 
 Pizza.prototype.removeTopping = function (topping) {
   this.toppings.splice(this.toppings.indexOf(topping), 1);
-}
+};
 
 Pizza.prototype.updateSize = function (pizzaSize) {
   this.size = pizzaSize;
-}
+};
 
 Pizza.prototype.pizzaPrice = function () {
   let basePrice = 5;
@@ -35,8 +36,14 @@ Pizza.prototype.pizzaPrice = function () {
   toppingsPrice = this.toppings.length * 0.75;
   pizzaPrice = (basePrice + toppingsPrice) * sizeMultiplier;
   console.log(pizzaPrice);
-}
+};
 
+function Order() {
+  this.cart = [];
+  this.price = 0;
+};
+
+//UI Logic
 //test cases
 let myPizza = new Pizza();
 myPizza.addTopping("anchovies");
