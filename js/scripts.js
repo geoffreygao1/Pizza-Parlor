@@ -5,22 +5,6 @@ function Pizza() {
   this.size = "";
 };
 
-// Pizza.prototype.addTopping = function (topping) {
-//   this.toppings.push(topping);
-// };
-
-// Pizza.prototype.removeTopping = function (topping) {
-//   this.toppings.splice(this.toppings.indexOf(topping), 1);
-// };
-
-// Pizza.prototype.updateSize = function (pizzaSize) {
-//   this.size = pizzaSize;
-// };
-
-// Pizza.prototype.updateCrust = function (crustType) {
-//   this.crust = crustType;
-// };
-
 Pizza.prototype.pizzaPrice = function () {
   let basePrice = 5;
   let sizeMultiplier = 1;
@@ -79,6 +63,9 @@ Order.prototype.reset = function () {
 
 //UI Logic
 
+//A global variable is being used in lieu of a sever
+let order = new Order();
+
 function cartHandler(event) {
   event.preventDefault();
   const inputCrust = document.querySelector('input[name="crustType"]:checked').value;
@@ -94,14 +81,14 @@ function cartHandler(event) {
   pizza.crust = inputCrust;
   pizza.size = inputSize;
   pizza.toppings = toppingsList;
-  console.log(pizza);
+  order.addPizza(pizza);
 }
 
 window.addEventListener("load", function () {
   const form = document.getElementById("orderForm");
-  let newOrder = new Order();
+
   let deliveryType = document.getElementById("deliveryType");
-  newOrder.deliveryMethod = deliveryType.value;
+  order.deliveryMethod = deliveryType.value;
 
   form.addEventListener("submit", cartHandler);
 });
