@@ -23,13 +23,12 @@ Pizza.prototype.updateSize = function (crustType) {
 
 Pizza.prototype.pizzaPrice = function () {
   let basePrice = 5;
-  let sizeMultiplier = 0;
+  let sizeMultiplier = 1;
+  let crustMultiplier = 1;
   let toppingsPrice = 0;
   let pizzaPrice = 0;
 
-  if (this.size === "small") {
-    sizeMultiplier = 1;
-  } else if (this.size === "medium") {
+  if (this.size === "medium") {
     sizeMultiplier = 2;
   } else if (this.size === "large") {
     sizeMultiplier = 3;
@@ -37,14 +36,21 @@ Pizza.prototype.pizzaPrice = function () {
     sizeMultiplier = 4;
   }
 
+  if (this.crust === "thin") {
+    crustMultiplier = 1.2;
+  } else if (this.crust === "deep-dish") {
+    sizeMultiplier = 1.5;
+  }
+
   toppingsPrice = this.toppings.length * 0.75;
-  pizzaPrice = (basePrice + toppingsPrice) * sizeMultiplier;
+  pizzaPrice = (basePrice + toppingsPrice) * sizeMultiplier * crustMultiplier;
   return pizzaPrice;
 };
 
 function Order() {
   this.cart = [];
   this.price = 0;
+  this.deliveryMethod = "";
 };
 
 Order.prototype.addPizza = function (pizza) {
@@ -56,13 +62,20 @@ Order.prototype.cartPrice = function () {
   this.cart.forEach(function (element) {
     cartPrice += element.pizzaPrice();
   });
-  console.log(cartPrice);
+  if (this.deliveryMethod === "delivery") {
+    cartPrice += 5;
+  }
+  return cartPrice;
+};
+
+Order.prototype.updateDelivery = function (deliveryType) {
+  this.deliveryMethod = deliveryType;
 };
 
 Order.prototype.reset = function () {
   this.cart = [];
   this.price = 0;
-}
+};
 
 //UI Logic
 //test cases

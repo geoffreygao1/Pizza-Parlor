@@ -53,7 +53,7 @@ Expected Output: myOrder = Order { cart: [myPizza], price: 0 }
 
 Describe: Order.cartPrice()
 
-Test: It should update and return the total cart price based on the objects in the pizza cart
+Test: It should update and return the total cart price based on the pizza objects in the cart as well as the delivery method. Delivery adds $5 to the price
 Code: myOrder.cartPrice();
 Expected Output: 13;
 
