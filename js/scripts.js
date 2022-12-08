@@ -43,6 +43,10 @@ function Order() {
   this.price = 0;
 };
 
+Order.prototype.addPizza = function (pizza) {
+  this.cart.push(pizza);
+};
+
 //UI Logic
 //test cases
 let myPizza = new Pizza();
@@ -50,3 +54,5 @@ myPizza.addTopping("anchovies");
 myPizza.addTopping("anchovies");
 myPizza.addTopping("Peppers");
 myPizza.updateSize("extra-large");
+let myOrder = new Order();
+myOrder.addPizza(myPizza);
