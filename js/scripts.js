@@ -5,21 +5,21 @@ function Pizza() {
   this.size = "";
 };
 
-Pizza.prototype.addTopping = function (topping) {
-  this.toppings.push(topping);
-};
+// Pizza.prototype.addTopping = function (topping) {
+//   this.toppings.push(topping);
+// };
 
-Pizza.prototype.removeTopping = function (topping) {
-  this.toppings.splice(this.toppings.indexOf(topping), 1);
-};
+// Pizza.prototype.removeTopping = function (topping) {
+//   this.toppings.splice(this.toppings.indexOf(topping), 1);
+// };
 
-Pizza.prototype.updateSize = function (pizzaSize) {
-  this.size = pizzaSize;
-};
+// Pizza.prototype.updateSize = function (pizzaSize) {
+//   this.size = pizzaSize;
+// };
 
-Pizza.prototype.updateSize = function (crustType) {
-  this.crust = crustType;
-};
+// Pizza.prototype.updateCrust = function (crustType) {
+//   this.crust = crustType;
+// };
 
 Pizza.prototype.pizzaPrice = function () {
   let basePrice = 5;
@@ -68,9 +68,9 @@ Order.prototype.cartPrice = function () {
   return cartPrice;
 };
 
-Order.prototype.updateDelivery = function (deliveryType) {
-  this.deliveryMethod = deliveryType;
-};
+// Order.prototype.updateDelivery = function (deliveryType) {
+//   this.deliveryMethod = deliveryType;
+// };
 
 Order.prototype.reset = function () {
   this.cart = [];
@@ -79,17 +79,29 @@ Order.prototype.reset = function () {
 
 //UI Logic
 
+function cartHandler(event) {
+  event.preventDefault();
+  const inputCrust = document.querySelector('input[name="crustType"]:checked').value;
+  const inputSize = document.getElementById('pizzaSize').value;
+  const checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+
+  let toppingsList = [];
+  for (let i = 0; i < checkboxes.length; i++) {
+    toppingsList.push(checkboxes[i].value);
+  };
+
+  let pizza = new Pizza();
+  pizza.crust = inputCrust;
+  pizza.size = inputSize;
+  pizza.toppings = toppingsList;
+  console.log(pizza);
+}
+
 window.addEventListener("load", function () {
   const form = document.getElementById("orderForm");
+  let newOrder = new Order();
+  let deliveryType = document.getElementById("deliveryType");
+  newOrder.deliveryMethod = deliveryType.value;
+
   form.addEventListener("submit", cartHandler);
 });
-
-//test cases
-let myPizza = new Pizza();
-myPizza.addTopping("anchovies");
-myPizza.addTopping("anchovies");
-myPizza.addTopping("Peppers");
-myPizza.updateSize("extra-large");
-let myOrder = new Order();
-myOrder.addPizza(myPizza);
-myOrder.addPizza(myPizza);
