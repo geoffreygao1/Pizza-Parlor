@@ -9,29 +9,6 @@ Test: It should return a Pizza Object with three properties for crust, toppings,
 Code: const myPizza = new Pizza("thin", ["anchovies", "pineapple"], "medium");
 Expected Output: Pizza { crust: "thin", toppings: ["anchovies", "pineapple"], size: "medium" }
 
-Describe: Pizza.addTopping(topping)
-
-Test: It should add a topping to the array of toppings in the Pizza Object
-Code: myPizza.addTopping("pepperoni"); 
-Expected Output: Pizza { crust: "thin", toppings: ["anchovies", "pineapple", "pepperoni"], size: "medium" }
-
-Describe: Pizza.removeTopping(topping)
-
-Test: It should remove a topping to the array of toppings in the Pizza Object
-Code: myPizza.removeTopping("pepperoni"); 
-Expected Output: Pizza { crust: "thin", toppings: ["anchovies", "pineapple"], size: "medium" }
-
-Describe: Pizza.updateSize(size)
-
-Test: It should change the size peoperty of the Pizza Object based on user input
-Code: myPizza.updateSize("large"); 
-Expected Output: Pizza { crust: "thin", toppings: ["anchovies", "pineapple"], size: "large" }
-
-Describe: Pizza.updateCrust(size)
-
-Test: It should change the size peoperty of the Pizza Object based on user input
-Code: myPizza.updateCrust("deep-dish"); 
-Expected Output: Pizza { crust: "deep-dish",toppings: ["anchovies", "pineapple"], size: "large" }
 
 Describe: Pizza.pizzaPrice()
 
