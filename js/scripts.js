@@ -1,5 +1,6 @@
 //Business Logic
 function Pizza() {
+  this.crust = "";
   this.toppings = [];
   this.size = "";
 };
@@ -14,6 +15,10 @@ Pizza.prototype.removeTopping = function (topping) {
 
 Pizza.prototype.updateSize = function (pizzaSize) {
   this.size = pizzaSize;
+};
+
+Pizza.prototype.updateSize = function (crustType) {
+  this.crust = crustType;
 };
 
 Pizza.prototype.pizzaPrice = function () {
@@ -53,6 +58,11 @@ Order.prototype.cartPrice = function () {
   });
   console.log(cartPrice);
 };
+
+Order.prototype.reset = function () {
+  this.cart = [];
+  this.price = 0;
+}
 
 //UI Logic
 //test cases
