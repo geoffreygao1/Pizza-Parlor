@@ -29,9 +29,9 @@ Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "large" }
 
 Describe: Pizza.pizzaPrice()
 
-Test: It should return the price of the pizza based on the toppings and size
+Test: It should return the price of the pizza based on the toppings and size. The base pizza cost is $5, each topping costs $0.75, and the size multiplies the sum of the base price and toppings. Multipliers are small: 1, medium: 2, large: 3, extra-large: 4;
 Code: myPizza.pizzaPrice();
-Expected Output: 25;
+Expected Output: 13;
 
 Describe: Order()
 
@@ -49,4 +49,10 @@ Describe: Order.cartPrice()
 
 Test: It should update and return the total cart price based on the objects in the pizza cart
 Code: myOrder.cartPrice();
-Expected Output: 50;
+Expected Output: 13;
+
+Describe: Order.reset()
+
+Test: It should reset the order to a blank order
+Code: myOrder.reset());
+Expected Output: myOrder = Order { cart: [], price: 0 }
