@@ -18,15 +18,15 @@ Expected Output: 19.5;
 
 Describe: Order()
 
-Test: It should return an Order Object with two properties for cart and price
-Code: const myOrder = new Order(cart: [], price: 0);
-Expected Output: myOrder = Order { cart: [], price: 0 }
+Test: It should return an Order Object with three properties for cart price and delivery method
+Code: const myOrder = new Order(cart: [], price: 0, deliveryMethod: "");
+Expected Output: myOrder = Order { cart: [], price: 0, deliveryMethod: ""}
 
 Describe: Order.addPizza(Pizza)
 
 Test: It should add a Pizza Object to the array in the cart property
 Code: myOrder.addPizza(myPizza)
-Expected Output: myOrder = Order { cart: [myPizza], price: 0 }
+Expected Output: myOrder = Order { cart: [myPizza], price: 0, deliveryMethod = "" }
 
 Describe: Order.cartPrice()
 
@@ -34,9 +34,9 @@ Test: It should update and return the total cart price based on the pizza object
 Code: myOrder.cartPrice();
 Expected Output: 13;
 
-Describe: Order.reset()
+Describe: Order.clearAll()
 
 Test: It should reset the order to a blank order
-Code: myOrder.reset());
-Expected Output: myOrder = Order { cart: [], price: 0 }
+Code: myOrder.clearAll());
+Expected Output: myOrder = Order { cart: [], price: 0 , deliveryMethod = ""}
 

@@ -1,3 +1,28 @@
 .hidden {
   display: none;
 }
+
+body {
+  background-color: rgb(255, 235, 211);
+}
+
+h1 {
+  font-style: italic;
+  margin: 20px;
+  color: rgb(118, 54, 54)
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(251, 188, 111);
+  border-radius: 20px;
+  margin: 20px;
+}
+
+#cart {
+  background-color: rgb(252, 251, 251);
+  padding: 50px;
+  border-radius: 20px;
+}
