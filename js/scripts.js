@@ -52,10 +52,6 @@ Order.prototype.cartPrice = function () {
   this.price = cartPrice;
 };
 
-// Order.prototype.updateDelivery = function (deliveryType) {
-//   this.deliveryMethod = deliveryType;
-// };
-
 Order.prototype.clearAll = function () {
   this.cart = [];
   this.price = 0;
@@ -70,12 +66,16 @@ let order = new Order();
 function cartHandler(event) {
   event.preventDefault();
   const form = document.getElementById("pizzaSelect");
+  const cart = document.getElementById("cart");
+  cart.classList.remove('hidden');
+  const orderInfo = document.getElementById("orderInfo");
+  orderInfo.classList.add('hidden');
   const inputCrust = document.querySelector('input[name="crustType"]:checked').value;
   const inputSize = document.getElementById('pizzaSize').value;
   const checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
   const deliveryType = document.getElementById('deliveryType').value;
-
   let pizza = new Pizza();
+
   //Updates Pizza Object from user input
   let toppingsList = [];
   for (let i = 0; i < checkboxes.length; i++) {
@@ -84,17 +84,18 @@ function cartHandler(event) {
   pizza.crust = inputCrust;
   pizza.size = inputSize;
   pizza.toppings = toppingsList;
-  //Adds to order
+
+  //Adds pizza to order
   order.deliveryMethod = deliveryType;
   order.addPizza(pizza);
   order.cartPrice();
   updateCart();
-  //clear fields
+
+  //clear form fields
   form.reset();
 };
 
 function updateCart() {
-  const cart = document.getElementById("cartContents");
   const pizzaList = document.getElementById("pizzaList");
   const total = document.getElementById("total");
   let deliveryFee = document.getElementById("deliveryFee");
@@ -132,9 +133,12 @@ function updateCart() {
 };
 
 function cartResetHandler() {
-  console.log("button clicked");
+  const cart = document.getElementById("cart");
+  const orderInfo = document.getElementById("orderInfo");
   order.clearAll();
-  updateCart();
+  cart.classList.add('hidden');
+  orderInfo.classList.remove('hidden');
+
 };
 
 window.addEventListener("load", function () {
