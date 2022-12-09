@@ -12,17 +12,29 @@ h1 {
   color: rgb(118, 54, 54)
 }
 
+h2 {
+  margin-bottom: 20px;
+}
+
+img {
+  object-fit: cover;
+  height: 100px;
+  width: 100%;
+}
+
+
 #header {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgb(251, 188, 111);
   border-radius: 20px;
-  margin: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 #cart {
   background-color: rgb(252, 251, 251);
-  padding: 50px;
+  padding: 40px;
   border-radius: 20px;
 }

@@ -10,99 +10,116 @@
 
 <body>
   <div class="container">
-    <div class="row" id="header">
-      <h1 class="text-center">Pizza Parlor</h1>
+    <div class="card" id="header">
+      <img class="card-image-top"
+        src="https://imageproxy.wolt.com/venue/6231e001bfae2214d8a5e086/cc651e4a-b03a-11ec-8dee-22df50c3974d_pan_pizza_2go_close_up_1.jpg"
+        alt="Card image cap with Pizza">
+      <h1 class="card-title">Pizza Parlor</h1>
     </div>
     <div class="row">
       <div class="col-6">
         <h2>Pizza Order Form:</h2>
         <div id="orderInfo">
           <form id="userInfo">
-            <h4>Delivery Method:</h4>
-            <select name="deliveryType" id="deliveryType">
-              <option value=" takeOut">Take Out</option>
-              <option value="delivery">Delivery (+$5)</option>
-            </select>
+            <div class="form-group row">
+              <label for="deliveryType" class="col-sm-4 col-form-label"><strong>Delivery Type: </strong></label>
+              <div class="col-sm-8">
+                <select name="deliveryType" id="deliveryType" class="form-control">
+                  <option value=" takeOut">Take Out</option>
+                  <option value="delivery">Delivery (+$5)</option>
+                </select>
+              </div>
+            </div>
           </form>
-          <br>
         </div>
         <div id="orderForm">
           <form id="pizzaSelect">
-            <h4>Size:</h4>
-            <select name="pizzaSize" id="pizzaSize"">
-              <option value=" small">Small</option>
-              <option selected="selected" value="medium">Medium</option>
-              <option value="large">Large</option>
-              <option value="extra-large">Extra-Large</option>
-            </select>
-            <br><br>
-            <h4>Crust:</h4>
-            <div id="crustType">
-              <div>
-                <input type="radio" id="thin" value="thin" name="crustType">
-                <label for="thin">Thin Crust</label>
-              </div>
-              <div>
-                <input type="radio" id="classic" value="classic" checked="checked" name="crustType">
-                <label for="classic">Classic</label>
-              </div>
-              <div>
-                <input type="radio" id="deepDish" value="deep dish" name="crustType">
-                <label for="deepDish">Deep Dish</label>
+            <div class="form-group row">
+              <label for="pizzaSize" class="col-sm-4 col-form-label"><strong>Size: </strong></label>
+              <div class="col-sm-8">
+                <select name="pizzaSize" id="pizzaSize" class="form-control">
+                  <option value=" small">Small</option>
+                  <option selected="selected" value="medium">Medium</option>
+                  <option value="large">Large</option>
+                  <option value="extra-large">Extra-Large</option>
+                </select>
               </div>
             </div>
-            <br>
-            <h4>Toppings:</h4>
-            <div id="toppingList">
-              <div>
-                <input type="checkbox" id="pepperoni" value="pepperoni">
-                <label for="pepperoni">Pepperoni</label>
-              </div>
-              <div>
-                <input type="checkbox" id="mushroom" value="mushroom">
-                <label for="mushroom">Mushroom</label>
-              </div>
-              <div>
-                <input type="checkbox" id="sausage" value="sausage">
-                <label for="sausage">Sausage</label>
-              </div>
-              <div>
-                <input type="checkbox" id="onion" value="onion">
-                <label for="onion">Onion</label>
-              </div>
-              <div>
-                <input type="checkbox" id="olives" value="olives">
-                <label for="olives">Black Olives</label>
-              </div>
-              <div>
-                <input type="checkbox" id="greenPepper" value="green pepper">
-                <label for="greenPepper">Green Pepper</label>
-              </div>
-              <div>
-                <input type="checkbox" id="garlic" value="garlic">
-                <label for="garlic">Fresh Garlic</label>
-              </div>
-              <div>
-                <input type="checkbox" id="basil" value="basil">
-                <label for="basil">Basil</label>
+            <div class="form-group row">
+              <label for="crustType" class="col-sm-4 col-form-label"><strong>Crust Type: </strong></label>
+              <div class="col-sm-8">
+                <div id="crustType">
+                  <div>
+                    <input type="radio" id="thin" value="thin" name="crustType">
+                    <label for="thin">Thin Crust</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="classic" value="classic" checked="checked" name="crustType">
+                    <label for="classic">Classic</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="deepDish" value="deep dish" name="crustType">
+                    <label for="deepDish">Deep Dish</label>
+                  </div>
+                </div>
               </div>
             </div>
-            <br>
-            <div>
-              <button type="submit" class="btn btn-primary">Add to Cart</button>
+            <div class="form-group row">
+              <label for="toppingList" class="col-sm-4 col-form-label"><strong>Toppings: </strong></label>
+              <div class="col-sm-8">
+                <div id="toppingList">
+                  <div>
+                    <input type="checkbox" id="pepperoni" value="pepperoni">
+                    <label for="pepperoni">Pepperoni</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="mushroom" value="mushroom">
+                    <label for="mushroom">Mushroom</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="sausage" value="sausage">
+                    <label for="sausage">Sausage</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="onion" value="onion">
+                    <label for="onion">Onion</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="olives" value="olives">
+                    <label for="olives">Black Olives</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="greenPepper" value="green pepper">
+                    <label for="greenPepper">Green Pepper</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="garlic" value="garlic">
+                    <label for="garlic">Fresh Garlic</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="basil" value="basil">
+                    <label for="basil">Basil</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+              </div>
             </div>
           </form>
         </div>
       </div>
       <div class="col-6">
         <div id="cart" class="hidden">
-          <h3>Your Cart:</h3>
+          <h2>Your Cart:</h2>
           <div id="cartContents">
             <ul id="pizzaList"></ul>
           </div>
           <div id="deliveryFee"></div>
           <br>
-          <h4>Order Total:</h4>
+          <h5>Order Total:</h5>
           <div id="total"></div>
           <br>
           <button type="button" id="cartReset" class="btn btn-warning">Reset Cart</button>
