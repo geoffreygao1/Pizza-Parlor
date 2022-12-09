@@ -39,3 +39,4 @@ Describe: Order.reset()
 Test: It should reset the order to a blank order
 Code: myOrder.reset());
 Expected Output: myOrder = Order { cart: [], price: 0 }
+

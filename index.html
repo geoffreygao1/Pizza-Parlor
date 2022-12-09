@@ -13,14 +13,8 @@
   <h2>Pizza Order Form</h2>
   <div id="orderInfo">
     <form id="userInfo">
-      <label for="name">Name:</label>
-      <input id="name" type="text">
-      <label for="address">Address:</label>
-      <input id="address" type="text">
-      <label for="phoneNum">Phone Number:</label>
-      <input id="phoneNum" type="text">
       <label for="deliveryType">Delivery Method:</label>
-      <select name="deliveryType" id="deliveryType"">
+      <select name="deliveryType" id="deliveryType">
         <option value=" takeOut">Take Out</option>
         <option value="delivery">Delivery (+$5)</option>
       </select>
@@ -32,15 +26,15 @@
       <h4>Crust:</h4>
       <div id="crustType">
         <div>
-          <input type="radio" id="thin" value="thin">
+          <input type="radio" id="thin" value="thin" name="crustType">
           <label for="thin">Thin Crust</label>
         </div>
         <div>
-          <input type="radio" id="classic" value="classic" checked="checked">
+          <input type="radio" id="classic" value="classic" checked="checked" name="crustType">
           <label for="classic">Classic</label>
         </div>
         <div>
-          <input type="radio" id="deepDish" value="deepDish">
+          <input type="radio" id="deepDish" value="deep dish" name="crustType">
           <label for="deepDish">Deep Dish</label>
         </div>
       </div>
@@ -67,7 +61,7 @@
           <label for="olives">Black Olives</label>
         </div>
         <div>
-          <input type="checkbox" id="greenPepper" value="greenPepper">
+          <input type="checkbox" id="greenPepper" value="green pepper">
           <label for="greenPepper">Green Pepper</label>
         </div>
         <div>
@@ -93,6 +87,13 @@
   </div>
   <div id="cart">
     <h3>Your Cart:</h3>
+    <div id="cartContents">
+      <ol id="pizzaList"></ol>
+    </div>
+    <div id="deliveryFee"></div>
+    <h4>Order Total:</h4>
+    <div id="total"></div>
+    <button type="button" id="cartReset">Reset Cart</button>
   </div>
 </body>
 

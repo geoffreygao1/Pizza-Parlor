@@ -22,7 +22,7 @@ Pizza.prototype.pizzaPrice = function () {
 
   if (this.crust === "thin") {
     crustMultiplier = 1.2;
-  } else if (this.crust === "deep-dish") {
+  } else if (this.crust === "deep dish") {
     sizeMultiplier = 1.5;
   }
 
@@ -49,16 +49,17 @@ Order.prototype.cartPrice = function () {
   if (this.deliveryMethod === "delivery") {
     cartPrice += 5;
   }
-  return cartPrice;
+  this.price = cartPrice;
 };
 
 // Order.prototype.updateDelivery = function (deliveryType) {
 //   this.deliveryMethod = deliveryType;
 // };
 
-Order.prototype.reset = function () {
+Order.prototype.clearAll = function () {
   this.cart = [];
   this.price = 0;
+  this.deliveryMethod = "";
 };
 
 //UI Logic
@@ -68,27 +69,77 @@ let order = new Order();
 
 function cartHandler(event) {
   event.preventDefault();
+  const form = document.getElementById("pizzaSelect");
   const inputCrust = document.querySelector('input[name="crustType"]:checked').value;
   const inputSize = document.getElementById('pizzaSize').value;
   const checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+  const deliveryType = document.getElementById('deliveryType').value;
 
+  let pizza = new Pizza();
+  //Updates Pizza Object from user input
   let toppingsList = [];
   for (let i = 0; i < checkboxes.length; i++) {
     toppingsList.push(checkboxes[i].value);
   };
-
-  let pizza = new Pizza();
   pizza.crust = inputCrust;
   pizza.size = inputSize;
   pizza.toppings = toppingsList;
+  //Adds to order
+  order.deliveryMethod = deliveryType;
   order.addPizza(pizza);
-}
+  order.cartPrice();
+  updateCart();
+  //clear fields
+  form.reset();
+};
+
+function updateCart() {
+  const cart = document.getElementById("cartContents");
+  const pizzaList = document.getElementById("pizzaList");
+  const total = document.getElementById("total");
+  let deliveryFee = document.getElementById("deliveryFee");
+
+  deliveryFee.innerText = "";
+  pizzaList.innerText = "";
+  total.innerText = "";
+
+  order.cart.forEach(function (element) {
+    let liPizza = document.createElement("li");
+    toppingsDesc = "";
+    for (let i = 0; i < element.toppings.length; i++) {
+      if (element.toppings.length === 1) {
+        toppingsDesc += "with " + element.toppings[i];
+      } else {
+        if (i === element.toppings.length - 1) {
+          toppingsDesc += " and " + element.toppings[i];
+        } else if (i === 0) {
+          toppingsDesc += "with " + element.toppings[i] + " ";
+        } else {
+          toppingsDesc += element.toppings[i] + " ";
+        }
+      }
+    }
+    let pizzaDesc = "One " + element.size + " " + element.crust + " crust pizza " + toppingsDesc + " ($" + element.pizzaPrice().toFixed(2) + ")";
+    liPizza.append(pizzaDesc);
+    pizzaList.append(liPizza);
+  });
+
+  if (order.deliveryMethod === "delivery") {
+    deliveryFee.append("Delivery Fee: $5");
+  }
+
+  total.append("$" + order.price.toFixed(2));
+};
+
+function cartResetHandler() {
+  console.log("button clicked");
+  order.clearAll();
+  updateCart();
+};
 
 window.addEventListener("load", function () {
   const form = document.getElementById("orderForm");
-
-  let deliveryType = document.getElementById("deliveryType");
-  order.deliveryMethod = deliveryType.value;
-
+  const cartReset = document.getElementById("cartReset");
   form.addEventListener("submit", cartHandler);
+  cartReset.addEventListener("click", cartResetHandler);
 });
