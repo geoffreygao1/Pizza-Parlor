@@ -20,7 +20,7 @@ _This website contains a form to construct a pizza and allows the user to genera
 
 ## Github Pages Link
 
-[Click here](https://geoffreygao1.github.io/pizza-parlor/) to view the Github Pages website
+[Click here](https://geoffreygao1.github.io/Pizza-Parlor/) to view the Github Pages website
 
 ## Setup/Installation Requirements
 

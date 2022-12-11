@@ -23,7 +23,7 @@ Pizza.prototype.pizzaPrice = function () {
   if (this.crust === "thin") {
     crustMultiplier = 1.2;
   } else if (this.crust === "deep dish") {
-    sizeMultiplier = 1.5;
+    crustMultiplier = 1.5;
   }
 
   toppingsPrice = this.toppings.length * 0.75;
